@@ -24,7 +24,7 @@ ICON_UPDATE="⛽️"
 
 # Global variables
 PROJCET_NAME="t3rn"
-VERSION=75.1
+VERSION=76
 #VERSION=$(curl -s https://api.github.com/repos/t3rn/executor-release/releases/latest | grep 'tag_name' | cut -d\" -f4 | grep -oP '(?<=v0\.)\d+')
 
 T3RN_DIR="$HOME/t3rn"
@@ -185,12 +185,12 @@ install_node() {
 
 
     echo -e "${CYAN}⬇️   Downloading executor-linux-v0.$VERSION.0.tar.gz${RESET}"
-    curl -L -O https://github.com/t3rn/executor-release/releases/download/v0.$VERSION.0/executor-linux-v0.$VERSION.1.tar.gz;
+    curl -L -O https://github.com/t3rn/executor-release/releases/download/v0.$VERSION.0/executor-linux-v0.$VERSION.0.tar.gz;
 
 
     echo -e "${YELLOW}🧰
     Extracting the file...${RESET}";
-    tar -xvzf executor-linux-v0.$VERSION.1.tar.gz;
+    tar -xvzf executor-linux-v0.$VERSION.0.tar.gz;
     echo
     # Check if extraction was successful
     if [ $? -eq 0 ]; then
@@ -257,14 +257,15 @@ export ENABLED_NETWORKS='arbitrum-sepolia,base-sepolia,optimism-sepolia,unichain
 
         
 export RPC_ENDPOINTS='{
-    "l2rn": ["https://t3rn-b2n.blockpi.network/v1/rpc/public", "https://b2n.rpc.caldera.xyz/http"],
-    "arbt": ["https://arb-sepolia.g.alchemy.com/v2/5wP1oPzZ_PkFCsuW-dFYXk0QrIRIQjMH"],
-    "bast": ["https://base-sepolia.g.alchemy.com/v2/5wP1oPzZ_PkFCsuW-dFYXk0QrIRIQjMH"],
-    "opst": ["https://opt-sepolia.g.alchemy.com/v2/5wP1oPzZ_PkFCsuW-dFYXk0QrIRIQjMH"],
-    "unit": ["https://unichain-sepolia.g.alchemy.com/v2/5wP1oPzZ_PkFCsuW-dFYXk0QrIRIQjMH"],
-    "blst": ["https://blast-sepolia.g.alchemy.com/v2/5wP1oPzZ_PkFCsuW-dFYXk0QrIRIQjMH"],
-    "mont": ["https://testnet-rpc.monad.xyz/"]
+  "l2rn": ["https://t3rn-b2n.blockpi.network/v1/rpc/public", "https://b2n.rpc.caldera.xyz/http"],
+  "arbt": ["https://arbitrum-sepolia.drpc.org", "https://sepolia-rollup.arbitrum.io/rpc"],
+  "bast": ["https://base-sepolia-rpc.publicnode.com", "https://base-sepolia.drpc.org"],
+  "opst": ["https://sepolia.optimism.io", "https://optimism-sepolia.drpc.org"],
+  "unit": ["https://unichain-sepolia.drpc.org", "https://sepolia.unichain.org"],
+  "blst": ["https://sepolia.blast.io", "https://endpoints.omniatech.io/v1/blast/sepolia/public"],
+  "mont": ["https://testnet-rpc.monad.xyz/"]
 }'
+
 
     
      
